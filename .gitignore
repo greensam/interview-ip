@@ -1,1 +1,4 @@
-**/*.csv\n **/*.xlsx\n **/*.lp
+**/*.csv
+**/*.xlsx
+**/*.lp
+**/*.ipynb
