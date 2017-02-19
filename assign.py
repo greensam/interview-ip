@@ -1,11 +1,11 @@
 #! /usr/bin/env python
 
+import os
 import pandas as pd
 import numpy as np
 from pulp import * 
 
-dat_round1 = pd.read_excel('Full-Pref-Excel.xlsx',sheetname='Round 1').fillna(0)
-dat_round2 = pd.read_excel('Full-Pref-Excel.xlsx',sheetname='Round 2').fillna(0)
+DOC_NAME = 'Full-Pref-Excel.xlsx'
 
 def solve_assignment(df1, df2):
 
@@ -94,7 +94,16 @@ def solve_assignment(df1, df2):
     outdf.columns = cnames
     outdf.to_csv('assignment.csv')
 
-solve_assignment(dat_round1, dat_round2)
+
+if __name__ == '__main__':
+    
+    if not os.path.exists(DOC_NAME):
+        print "usage: ./assign.py"
+        print "Excel document `Full-Pref-Excel.xlsx` expected in same folder as assign.py."
+
+    dat_round1 = pd.read_excel(DOC_NAME, sheetname='Round 1').fillna(0)
+    dat_round2 = pd.read_excel(DOC_NAME, sheetname='Round 2').fillna(0)
+    solve_assignment(dat_round1, dat_round2)
 
 
 
