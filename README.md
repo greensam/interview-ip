@@ -25,4 +25,26 @@ be reused in the output.
 To set up the script, I recommend using `virtualenv` and `pip`, as follows:
 
 ```
-git clone 
+# clone the repo
+git clone https://github.com/greensam/interview-ip.git
+
+# change
+cd interview-ip
+
+# create a virtualenv
+virtualenv venv
+source venv/bin/activate
+
+# install deps
+pip install -r requirements.txt
+```
+
+and then, after putting the preference sheet into the `interview-ip` folder,
+ run by executing: 
+
+```
+./assign.py
+````
+
+The output will show up in `assignment.csv`! 
+
